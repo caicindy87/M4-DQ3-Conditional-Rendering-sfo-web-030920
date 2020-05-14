@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
 
 const MenuBar = (props) => {
-
   /*
 
   The 'a' tags below are the menu items. Think about the way a menu 
@@ -13,26 +12,45 @@ const MenuBar = (props) => {
 
   */
 
+  const handleClick = (event) => {
+    props.onClickMenuTab(event.target.id);
+  };
+
   return (
     <div className="ui four item menu">
-      <a className="item active" id="profile">
-        <i className="user large icon" id="profile"/>
+      <a
+        className={"item " + (props.selected === "profile" ? "active" : "")}
+        id="profile"
+        onClick={handleClick}
+      >
+        <i className="user large icon" id="profile" />
       </a>
 
-      <a className="item" id="photo">
-        <i className="photo large icon" id="photo"/>
+      <a
+        className={"item " + (props.selected === "photo" ? "active" : "")}
+        id="photo"
+        onClick={handleClick}
+      >
+        <i className="photo large icon" id="photo" />
       </a>
 
-      <a className="item" id="cocktail">
-        <i className="cocktail large icon" id="cocktail"/>
+      <a
+        className={"item " + (props.selected === "cocktail" ? "active" : "")}
+        id="cocktail"
+        onClick={handleClick}
+      >
+        <i className="cocktail large icon" id="cocktail" />
       </a>
 
-      <a className="item" id="pokemon"> 
-        <i className=" themeisle large icon" id="pokemon"/>
+      <a
+        className={"item " + (props.selected === "pokemon" ? "active" : "")}
+        id="pokemon"
+        onClick={handleClick}
+      >
+        <i className=" themeisle large icon" id="pokemon" />
       </a>
     </div>
-  )
+  );
+};
 
-}
-
-export default MenuBar
+export default MenuBar;
